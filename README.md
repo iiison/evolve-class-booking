@@ -5,4 +5,4 @@ So, I need to book my gym class two days in advance. They open the booking at 10
 - Sings me in
 - Makes `book class slot` API call at 10:15 pm.
 
-Suck it, people.
+Suck on that, everybody who books the slot as soon as it opens.

@@ -13,10 +13,11 @@ const refreshToken = require('./src/utils/refreshToken')
 refreshToken()
 
 schedule.scheduleJob('0 21 * * *', async () => {
-  const { login, password } = secrets
-  const response = await userLogin({ login, password })
+  refreshToken()
+  // const { login, password } = secrets
+  // const response = await userLogin({ login, password })
 
-  await response.json()
+  // await response.json()
 })
 
 schedule.scheduleJob('15 22 * * *', async () => {

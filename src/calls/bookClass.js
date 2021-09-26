@@ -15,12 +15,12 @@ function bookClass({ eventId, eventDate }) {
     'sec-fetch-mode'   : 'cors',
     'sec-fetch-site'   : 'cross-site'
   }
-  const body = {
+  const body = JSON.stringify({
     memberId,
     eventId,
     eventDate,
     action : 'book'
-  }
+  })
 
   return fetch('https://api.evolvegenius.com/booking/book-class', {
     headers,

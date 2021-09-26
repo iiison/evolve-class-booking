@@ -12,15 +12,10 @@ const refreshToken = require('./src/utils/refreshToken')
 
 refreshToken()
 
-schedule.scheduleJob('0 21 * * *', async () => {
-  refreshToken()
-  // const { login, password } = secrets
-  // const response = await userLogin({ login, password })
+schedule.scheduleJob('0 21 * * *', async () => refreshToken())
 
-  // await response.json()
-})
-
-schedule.scheduleJob('15 22 * * *', async () => {
+// Trigger Booking at 10:15pm
+schedule.scheduleJob('0 15 22 * * *', async () => {
   const { token, memberships } = global
   const eventsRes = await getEvents({
     token,
@@ -31,13 +26,10 @@ schedule.scheduleJob('15 22 * * *', async () => {
   const values = Object.values(event)
 
   if (values.length > 0) {
-    for (const value of values) {
+    for (let i = 0; i < values.length; i++) {
+      const value = values[i]
       const res = await bookClass(value)
       const val = await res.json()
-
-      console.log('*******************')
-      console.log(val)
-      console.log('*******************')
     }
   }
 })

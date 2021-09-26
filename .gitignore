@@ -65,5 +65,6 @@ tags
 
 # Don't add secret flies
 **/secrets.json
+**/session.json
 config/*
 
